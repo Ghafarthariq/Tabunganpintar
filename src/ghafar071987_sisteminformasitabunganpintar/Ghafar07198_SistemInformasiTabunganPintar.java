@@ -2,11 +2,12 @@ package ghafar071987_sisteminformasitabunganpintar;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Ghafar07198_SistemInformasiTabunganPintar {
-static ArrayList<Ghafar07198_DataPenggunaEntity> user=new ArrayList();
-static ArrayList<Ghafar07198_DataTabunganEntity> Tabungan=new ArrayList();
-static Scanner input=new Scanner(System.in);
+ArrayList<Ghafar07198_DataPenggunaEntity> user=new ArrayList();
+ArrayList<Ghafar07198_DataTabunganEntity> Tabungan=new ArrayList();
+Scanner input=new Scanner(System.in);
 
     public static void main(String[] args) {
+        Ghafar07198_SistemInformasiTabunganPintar data = new Ghafar07198_SistemInformasiTabunganPintar();
         int pil;
         do{
         System.out.println("1.Daftar Akun");
@@ -16,46 +17,46 @@ static Scanner input=new Scanner(System.in);
         System.out.println("5.view");
         System.out.println("6.Exit");
         System.out.print("Pilih = ");
-         pil=input.nextInt();
+         pil=data.input.nextInt();
         switch(pil){
             case 1:
-                daftar();
+                data.daftar();
                 break;
             case 2:
                 System.out.print("Email = ");
-                String Ghafar07198_Email=input.next();
+                String Ghafar07198_Email=data.input.next();
                 System.out.print("Password = ");
-                String Ghafar07198_Password=input.next();
-                menuutama(Ghafar07198_Email,Ghafar07198_Password);
+                String Ghafar07198_Password=data.input.next();
+                data.menuutama(Ghafar07198_Email,Ghafar07198_Password);
                 break;
             case 3:
                 System.out.println("Nama yang Dihapus = ");
-                String Ghafar07198_nama1=input.next();
-                hapusnama(Ghafar07198_nama1);
+                String Ghafar07198_nama1=data.input.next();
+                data.hapusnama(Ghafar07198_nama1);
                 System.out.println("");
 
                 break;
             case 4:
 
                 System.out.println("Nama yang Diupdate = ");
-                String Ghafar07198_nama=input.next();
-                update(Ghafar07198_nama);
+                String Ghafar07198_nama=data.input.next();
+                data.update(Ghafar07198_nama);
 
                 break;
             case 5:
-                if(user.isEmpty()){
+                if(data.user.isEmpty()){
                     System.out.println("data kosong");
                 }else{
-                for(int a=0;a<user.size();a++){
-                    System.out.println("Nama = "+user.get(a).getNama());
-                    System.out.println("Target Menabung = "+Tabungan.get(a).getGhafar07198_target());
-                    System.out.println("Email = "+user.get(a).getEmail());
+                for(int a=0;a<data.user.size();a++){
+                    System.out.println("Nama = "+data.user.get(a).getNama());
+                    System.out.println("Target Menabung = "+data.Tabungan.get(a).getGhafar07198_target());
+                    System.out.println("Email = "+data.user.get(a).getEmail());
                 }
             }
         }
         }while(pil!=6);
     }
-    static void daftar(){
+    void daftar(){
         System.out.print("Nama = ");
         String Ghafar07198_nama=input.next();
         System.out.print("Jenis Kelamin = ");
@@ -66,7 +67,7 @@ static Scanner input=new Scanner(System.in);
         String Ghafar07198_Password=input.next();
         user.add(new Ghafar07198_DataPenggunaEntity(Ghafar07198_Email,Ghafar07198_Password,Ghafar07198_jeniskelamin,Ghafar07198_nama));        
     }
-    static void hapusnama(String Ghafar07198_Nama){
+    void hapusnama(String Ghafar07198_Nama){
         if(Carinama(Ghafar07198_Nama)!=-1){
             user.remove(Carinama(Ghafar07198_Nama));
         }else{
@@ -74,7 +75,7 @@ static Scanner input=new Scanner(System.in);
         }
     }
     
-    static void update(String Ghafar07198_Nama){
+    void update(String Ghafar07198_Nama){
         if(Carinama(Ghafar07198_Nama)!=-1){
             System.out.println("Email Baru = ");
             String Ghafar07198_email=input.next();
@@ -84,7 +85,7 @@ static Scanner input=new Scanner(System.in);
         }
     }
     
-    static int Carinama(String Ghafar07198_Nama){
+    int Carinama(String Ghafar07198_Nama){
         int indeks=-1;
         for(int a=0;a<user.size();a++){
             if(Ghafar07198_Nama.equals(user.get(a).getNama())){
@@ -95,7 +96,7 @@ static Scanner input=new Scanner(System.in);
     }
     
     
-    static void menuutama(String Ghafar07198_Email,String Ghafar07198_Password){
+    void menuutama(String Ghafar07198_Email,String Ghafar07198_Password){
         int Ghafar07198_jangkawaktuterkumpul1,Ghafar07198_jangkawaktuterkumpul2,Ghafar07198_bulan,Ghafar07198_kurang;
         for(int a=0;a<user.size();a++){
             if(Ghafar07198_Email.equals(user.get(a).getEmail())&&Ghafar07198_Password.equals(user.get(a).getPassword())){
