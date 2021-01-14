@@ -24,10 +24,11 @@ public class Ghafar07198_DataPenggunaModel implements ModelInterfaces {
         return loop;
     }
      
-     public int hapusnama(String Ghafar07198_nama){
+     public int hapusnama(String Ghafar07198_email){
            int Status;
-      if(carinama(Ghafar07198_nama)!=-1){
-           datapenggunaEntityArrayList.remove(carinama(Ghafar07198_nama));
+      if(cariemail(Ghafar07198_email)!=-1){
+           int index =cariemail(Ghafar07198_email);
+           datapenggunaEntityArrayList.remove(index);
            Status=1;
       }else{
            Status =0;
@@ -36,10 +37,10 @@ public class Ghafar07198_DataPenggunaModel implements ModelInterfaces {
       return Status;
    }
      
-    public int update(String Ghafar07198_nama,String Ghafar07198_email){
+    public int update(String Ghafar07198_emaillama,String Ghafar07198_email){
         int Status;
-        if(carinama(Ghafar07198_nama)!=-1){     
-            datapenggunaEntityArrayList.get(carinama(Ghafar07198_nama)).setEmail(Ghafar07198_email);
+        if(cariemail(Ghafar07198_emaillama)!=-1){     
+            datapenggunaEntityArrayList.get(cariemail(Ghafar07198_emaillama)).setEmail(Ghafar07198_email);
             Status=1;
        }else{
             Status=0;
@@ -47,11 +48,11 @@ public class Ghafar07198_DataPenggunaModel implements ModelInterfaces {
        return Status;
    }
      
-      private int carinama(String Nama){
+      private int cariemail(String email){
        int indeks=-1;
        
        for(int a=0;a<datapenggunaEntityArrayList.size();a++){
-           if(Nama.equals(datapenggunaEntityArrayList.get(a).getNama())){
+           if(email.equals(datapenggunaEntityArrayList.get(a).getEmail())){
                indeks=a;
                break;
            }
